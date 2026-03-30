@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 180 100% 95%;
+
+    --card: 0 0% 6%;
+    --card-foreground: 180 100% 95%;
+
+    --popover: 0 0% 6%;
+    --popover-foreground: 180 100% 95%;
+
+    --primary: 184 100% 50%;
+    --primary-foreground: 0 0% 2%;
+
+    --secondary: 220 15% 12%;
+    --secondary-foreground: 180 60% 80%;
+
+    --muted: 220 10% 10%;
+    --muted-foreground: 180 10% 55%;
+
+    --accent: 184 100% 50%;
+    --accent-foreground: 0 0% 2%;
+
+    --destructive: 0 85% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 184 40% 15%;
+    --input: 220 15% 15%;
+    --ring: 184 100% 50%;
+
+    --radius: 0.5rem;
+
+    --neon: 184 100% 50%;
+    --neon-glow: 0 0 10px hsl(184 100% 50% / 0.5), 0 0 30px hsl(184 100% 50% / 0.2);
+    --neon-glow-strong: 0 0 10px hsl(184 100% 50% / 0.7), 0 0 40px hsl(184 100% 50% / 0.3), 0 0 80px hsl(184 100% 50% / 0.1);
+    --danger: 0 85% 55%;
+    --danger-glow: 0 0 10px hsl(0 85% 55% / 0.5), 0 0 30px hsl(0 85% 55% / 0.2);
+    --success: 142 70% 45%;
+    --success-glow: 0 0 10px hsl(142 70% 45% / 0.5);
+    --warning: 45 100% 50%;
+
+    --font-display: 'Orbitron', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-body: 'Inter', sans-serif;
+
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 180 60% 80%;
+    --sidebar-primary: 184 100% 50%;
+    --sidebar-primary-foreground: 0 0% 2%;
+    --sidebar-accent: 220 15% 12%;
+    --sidebar-accent-foreground: 180 60% 80%;
+    --sidebar-border: 184 40% 15%;
+    --sidebar-ring: 184 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+    font-family: var(--font-body);
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+
+  .neon-text {
+    color: hsl(var(--neon));
+    text-shadow: var(--neon-glow);
+  }
+
+  .neon-border {
+    border-color: hsl(var(--neon) / 0.4);
+    box-shadow: var(--neon-glow), inset 0 0 20px hsl(var(--neon) / 0.05);
+  }
+
+  .neon-border-strong {
+    border-color: hsl(var(--neon) / 0.6);
+    box-shadow: var(--neon-glow-strong), inset 0 0 30px hsl(var(--neon) / 0.08);
+  }
+
+  .danger-border {
+    border-color: hsl(var(--danger) / 0.4);
+    box-shadow: var(--danger-glow), inset 0 0 20px hsl(var(--danger) / 0.05);
+  }
+
+  .terminal-bg {
+    background: linear-gradient(180deg, hsl(0 0% 3%) 0%, hsl(0 0% 5%) 100%);
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(hsl(var(--neon) / 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--neon) / 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .scan-line {
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      hsl(var(--neon) / 0.03) 50%,
+      transparent 100%
+    );
+    animation: scan 4s linear infinite;
+  }
+}
+
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+@keyframes pulse-neon {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes flow-right {
+  0% { transform: translateX(-100%); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
