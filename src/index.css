@@ -142,3 +142,59 @@
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }
+
+/* Honeypot dashboard styles */
+.terminal-font {
+  font-family: var(--font-mono);
+}
+
+.glow-text {
+  color: hsl(var(--neon));
+  text-shadow: 0 0 10px hsl(var(--neon) / 0.8),
+               0 0 20px hsl(var(--neon) / 0.5),
+               0 0 30px hsl(var(--neon) / 0.3);
+}
+
+.glow-border {
+  box-shadow: 0 0 10px hsl(var(--neon) / 0.5),
+              inset 0 0 10px hsl(var(--neon) / 0.1);
+}
+
+.glass-card {
+  background: hsl(var(--card) / 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius);
+}
+
+.cursor-blink {
+  animation: blink 1s infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px hsl(var(--neon) / 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px hsl(var(--neon) / 0.8),
+                0 0 30px hsl(var(--neon) / 0.5);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes data-stream {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-data-stream {
+  animation: data-stream 0.3s ease-out;
+}

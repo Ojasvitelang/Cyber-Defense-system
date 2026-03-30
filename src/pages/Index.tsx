@@ -1,4 +1,5 @@
 import { useState, useCallback, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 import DashboardHeader from "@/components/DashboardHeader";
 import ArchitectureDiagram from "@/components/ArchitectureDiagram";
 import StatusCards from "@/components/StatusCards";
@@ -100,6 +101,19 @@ const Index = () => {
         <ArchitectureDiagram activeFlow={activeFlow} />
         <StatusCards />
         <AttackButtons onSimulate={handleSimulate} activeFlow={activeFlow} />
+        <section className="px-4 py-6">
+          <h2 className="font-display text-sm tracking-widest text-muted-foreground uppercase mb-4 text-center">
+            Advanced Monitoring
+          </h2>
+          <div className="flex justify-center">
+            <Link
+              to="/human-in-the-loop"
+              className="font-mono text-xs px-6 py-3 rounded-md border border-primary/30 text-primary hover:bg-primary/10 hover:border-primary/60 transition-all duration-300 tracking-wide neon-border"
+            >
+              Human in the Loop - Deceptive Honeypot Dashboard
+            </Link>
+          </div>
+        </section>
         <section className="px-4 py-6">
           <h2 className="font-display text-sm tracking-widest text-muted-foreground uppercase mb-4 text-center">
             Live Log Terminals
